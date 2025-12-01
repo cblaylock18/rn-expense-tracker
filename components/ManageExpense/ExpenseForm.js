@@ -41,11 +41,8 @@ const ExpenseForm = ({
     };
 
     const amountIsValid = !isNaN(expenseData.amount) && expenseData.amount > 0;
-    const dateIsValid =
-      expenseData.date.toString() !== "Invalid date" &&
-      expenseData.date.toString().length === 10;
+    const dateIsValid = expenseData.date.toString() !== "Invalid date";
     const descriptionIsValid = expenseData.description.trim().length > 0;
-
     if (!amountIsValid || !descriptionIsValid || !dateIsValid) {
       setInputs((prevInputs) => ({
         amount: { value: prevInputs.amount.value, isValid: amountIsValid },
